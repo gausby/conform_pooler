@@ -56,7 +56,7 @@ See the moduledoc for `Conform.Schema.Validator` for more details and examples.
       commented: false,
       datatype: [
         list: [
-          list: {:atom, :atom}
+          list: {:atom, [:atom, :integer]}
         ]
       ],
       default: [
