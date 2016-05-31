@@ -52,21 +52,40 @@ See the moduledoc for `Conform.Schema.Validator` for more details and examples.
   extends: [],
   import: [],
   mappings: [
-    "pooler.pools": [
-      commented: false,
-      datatype: [
-        list: [
-          list: {:atom, [:atom, :integer]}
-        ]
-      ],
-      default: [
-        [name: :riaklocal1, group: :riak, max_count: 10, init_count: 5, start_mfa: Elixir.Riak.Connection]
-      ],
+    "pooler.pools.*": [
+      datatype: [:complex],
+      to: "pooler.pools",
       doc: "Provide documentation for pooler.pools here.",
+      commented: false,
       hidden: false,
+    ],
+    "pooler.pools.riaklocal1.name": [
+      datatype: :atom,
+      default: :riaklocal1,
       to: "pooler.pools"
+    ],
+    "pooler.pools.riaklocal1.group": [
+      datatype: :atom,
+      default: :riak,
+      to: "pooler.pools"
+    ],
+    "pooler.pools.riaklocal1.max_count": [
+      datatype: :integer,
+      default: 10,
+      to: "pooler.pools",
+    ],
+    "pooler.pools.riaklocal1.init_count": [
+      datatype: :integer,
+      to: "pooler.pools",
+      default: 5
+    ],
+    "pooler.pools.riaklocal1.start_mfa": [
+      datatype: :atom,
+      to: "pooler.pools",
+      default: Elixir.Riak.Connection
     ]
   ],
-  transforms: [],
+  transforms: [
+  ],
   validators: []
 ]
